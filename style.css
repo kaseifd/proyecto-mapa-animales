@@ -1,37 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap");
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@font-face {
+    font-family: cardenio-regular;
+    src: url(fonts/CardenioModern-Regular.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: cardenio-bold;
+    src: url(fonts/CardenioModern-Bold.woff);
+    font-weight: 700;
+}
+
+:root {
+    --dark-color: #2a1b16;
+    --light-color: #f9f7f2;
+}
+
+.cardenio-regular {
+    font-family: cardenio-regular;
+    font-weight: 400;
+}
+
+.cardenio-bold {
+    font-family: cardenio-bold;
+    font-weight: 700;
+}
+
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mrs-saint-delafield-regular {
+    font-family: "Mrs Saint Delafield", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* * {
     border: solid 1px red;
 } */
 
-body{
-    margin: 0 100px;
-
-    
-    
-}
-
-#header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    top: 0;
-}
-
-#map-container {
+body {
     margin: 0;
-    background-color: rgb(211, 253, 255);
-    padding-top: 100px;
-    border-radius: 24px;
-    position: relative;
+    background-color: #f9f7f2;
 }
-
-#map {
-    width: 100%;
-} 
-
-
-/* #europe-info {
-    display: none;
-} */
-

@@ -6,33 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 1 - Mapa animales</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map-style.css">
 </head>
 
 <body>
-
-
     <div id="map-container">
         <div id="header">
-            <div id="logo">
-                <h1>Logo</h1>
+            <div id="logo-container">
+                <h1 class="cardenio-bold" id="logo">Animal Guide</h1>
             </div>
             <div id="search-bar">
-                <input type="text">
-                <button onclick="">Search</button>
+                <input class="cardenio-regular" type="text" placeholder="Search an animal">
+                <div id="search-bar-icon">
+                    <img class="icon" src="icons/icon-search.svg" alt="">
+                </div>
+            </div>
+
+            <div id="filter-settings-container">
+                <div id="filter-settings-button">
+                    <span class="label cardenio-regular">filters</span>
+                    <img src="icons/icon-filters.svg" alt="">
+                </div>
             </div>
         </div>
-        <!-- <img id="map" src="images/world-map.svg" alt=""> -->
-        <div>
-             <!-- <div id="europe-info">
-            <h2>Europa</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, ratione error nulla laboriosam magni commodi at, optio ducimus fuga, eum nisi itaque saepe distinctio enim impedit tempora dolorum facere sequi.</p>
-        </div> -->
+
+        <div id="circles-container">
+            <div class="circle" id="circle-europe">
+                <p class="animals-number inter-regular">167</p>
+            </div>
+            <div class="circle" id="circle-africa">
+                <p class="animals-number inter-regular">183</p>
+            </div>
+            <div class="circle" id="circle-north-america">
+                <p class="animals-number inter-regular">244</p>
+            </div>
+            <div class="circle" id="circle-south-america">
+                <p class="animals-number inter-regular">132</p>
+            </div>
+            <div class="circle" id="circle-oceania">
+                <p class="animals-number inter-regular">120</p>
+            </div>
+            <div class="circle" id="circle-asia">
+                <p class="animals-number inter-regular">229</p>
+            </div>
+            <div class="circle" id="circle-antarctica">
+                <p class="animals-number inter-regular">7</p>
+            </div>
+            <div class="circle" id="circle-oceans">
+                <p class="animals-number inter-regular">66</p>
+            </div>
+
         </div>
-       
+
+        <div id="continents-animals">
+            <!-- <div id="europe-animals">
+                <h2>Europa</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, ratione error nulla laboriosam magni commodi at, optio ducimus fuga, eum nisi itaque saepe distinctio enim impedit tempora dolorum facere sequi.</p>
+            </div> -->
+        </div>
+
 
     </div>
     <script type="module" src="map.js"></script>
-    <script src="apps.js"></script>
+    <script type="module" src="apps.js"></script>
 </body>
 
 </html>
