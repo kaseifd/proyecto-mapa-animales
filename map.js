@@ -1,57 +1,6 @@
 let svgHTMLtag
 let mapContainerHTML = document.getElementById("map-container")
 
-
-await fetch("images/world-map.svg")
-    .then((response => response.text()))
-    .then((svgCode => {
-        svgHTMLtag = svgCode
-        mapContainerHTML.innerHTML += svgHTMLtag
-        document.getElementById("europe").addEventListener("click", () => openContinent("europe"))
-        document.getElementById("north-america").addEventListener("click", () => openContinent("north-america"))
-        document.getElementById("south-america").addEventListener("click", () => openContinent("south-america"))
-        document.getElementById("asia").addEventListener("click", () => openContinent("asia"))
-        document.getElementById("antarctica").addEventListener("click", () => openContinent("antarctica"))
-        document.getElementById("africa").addEventListener("click", () => openContinent("africa"))
-        document.getElementById("oceania").addEventListener("click", () => openContinent("oceania"))
-    }))
-
-
-function openContinent(continent) {
-
-    // await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
-    //     document.getElementById("continents-container").innerHTML = data
-    // })
-
-    document.getElementById("continents-container").innerHTML = `
-    <div id="${continent}-info" class="continent-info">
-        <div id="left-page">
-            <img src="images/world-map.svg" alt="">
-        </div>
-        <div id="right-page">
-            <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
-            <div id="list-container">
-                <ul id="animals-container" class="columns-list"></ul>
-            </div>
-
-            <div id="close-button">
-                <img class="icon" src="icons/icon-close.svg" alt="">
-            </div>
-        </div>
-    </div>
-    `
-
-    displayAnimals(continent)
-    
-    document.getElementById("close-button").addEventListener("click", closeContinent)
-}
-
-function closeContinent() {
-    document.getElementById("continents-container").innerHTML = ""
-}
-
-
-
 let continents = {
     "europe": {
         name: "Europe",
@@ -96,7 +45,6 @@ let continents = {
 
 }
 
-
 let animalsFromEurope = continents.europe.animals
 let animalsFromNorthAmerica = continents["north-america"].animals
 let animalsFromSouthAmerica = continents["south-america"].animals
@@ -106,9 +54,85 @@ let animalsFromAfrica = continents.africa.animals
 let animalsFromAntarctica = continents.antarctica.animals
 let animalsFromOceans = continents.oceans.animals
 
-await animalsByContinent()
+displayMap()
 
-async function animalsByContinent() {
+
+async function displayMap() {
+    await fetch("images/world-map.svg")
+        .then((response => response.text()))
+        .then((svgCode => {
+            svgHTMLtag = svgCode
+            mapContainerHTML.innerHTML += svgHTMLtag
+
+            // Open Europe
+            document.getElementById("europe").addEventListener("click", () => openContinent("europe"))
+            document.getElementById("circle-europe").addEventListener("click", () => openContinent("europe"))
+            
+            // Open North America
+            document.getElementById("north-america").addEventListener("click", () => openContinent("north-america"))
+            document.getElementById("circle-north-america").addEventListener("click", () => openContinent("north-america"))
+
+            // Open South America
+            document.getElementById("south-america").addEventListener("click", () => openContinent("south-america"))
+            document.getElementById("circle-south-america").addEventListener("click", () => openContinent("south-america"))
+
+            // Open Asia
+            document.getElementById("asia").addEventListener("click", () => openContinent("asia"))
+            document.getElementById("circle-asia").addEventListener("click", () => openContinent("asia"))
+
+            // Open Antarctica
+            document.getElementById("antarctica").addEventListener("click", () => openContinent("antarctica"))
+            document.getElementById("circle-antarctica").addEventListener("click", () => openContinent("antarctica"))
+
+            // Open Africa
+            document.getElementById("africa").addEventListener("click", () => openContinent("africa"))
+            document.getElementById("circle-africa").addEventListener("click", () => openContinent("africa"))
+
+            // Open Oceania
+            document.getElementById("oceania").addEventListener("click", () => openContinent("oceania"))
+            document.getElementById("circle-oceania").addEventListener("click", () => openContinent("oceania"))
+
+            // Open oceans
+            document.getElementById("circle-oceans").addEventListener("click", () => openContinent("oceans"))
+    
+            sortAnimalsByContinent()
+        }))
+}
+
+function openContinent(continent) {
+
+    // await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
+    //     document.getElementById("continents-container").innerHTML = data
+    // })
+
+    document.getElementById("continents-container").innerHTML = `
+    <div id="${continent}-info" class="continent-info">
+        <div id="left-page">
+            <img src="images/world-map.svg" alt="">
+        </div>
+        <div id="right-page">
+            <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
+            <div id="list-container">
+                <ul id="animals-container" class="columns-list"></ul>
+            </div>
+
+            <div id="close-button">
+                <img class="icon" src="icons/icon-close.svg" alt="">
+            </div>
+        </div>
+    </div>
+    `
+
+    displayAnimals(continent)
+    
+    document.getElementById("close-button").addEventListener("click", closeContinent)
+}
+
+function closeContinent() {
+    document.getElementById("continents-container").innerHTML = ""
+}
+
+async function sortAnimalsByContinent() {
     await fetch("https://globalanimalguide.org/api/animals.json")
         .then((response) => response.json())
         .then((data) => {
