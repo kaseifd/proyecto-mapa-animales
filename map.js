@@ -8,27 +8,43 @@ await fetch("images/world-map.svg")
         svgHTMLtag = svgCode
         mapContainerHTML.innerHTML += svgHTMLtag
         document.getElementById("europe").addEventListener("click", () => openContinent("europe"))
-        // document.getElementById("north-america").addEventListener("click", () => openContinent("north-america"))
-        // document.getElementById("south-america").addEventListener("click", () => openContinent("south-america"))
-        // document.getElementById("asia").addEventListener("click", () => openContinent("asia"))
-        // document.getElementById("antarctica").addEventListener("click", () => openContinent("antarctica"))
-        // document.getElementById("africa").addEventListener("click", () => openContinent("africa"))
-        // document.getElementById("oceania").addEventListener("click", () => openContinent("oceania"))
+        document.getElementById("north-america").addEventListener("click", () => openContinent("north-america"))
+        document.getElementById("south-america").addEventListener("click", () => openContinent("south-america"))
+        document.getElementById("asia").addEventListener("click", () => openContinent("asia"))
+        document.getElementById("antarctica").addEventListener("click", () => openContinent("antarctica"))
+        document.getElementById("africa").addEventListener("click", () => openContinent("africa"))
+        document.getElementById("oceania").addEventListener("click", () => openContinent("oceania"))
     }))
 
 
-async function openContinent(continent) {
+function openContinent(continent) {
 
-    await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
-        document.getElementById("continents-container").innerHTML = data
-    })
+    // await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
+    //     document.getElementById("continents-container").innerHTML = data
+    // })
 
-    displayAnimals()
+    document.getElementById("continents-container").innerHTML = `
+    <div id="${continent}-info" class="continent-info">
+        <div id="left-page">
+            <img src="images/world-map.svg" alt="">
+        </div>
+        <div id="right-page">
+            <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
+            <div id="list-container">
+                <ul id="animals-container" class="columns-list"></ul>
+            </div>
+
+            <div id="close-button">
+                <img class="icon" src="icons/icon-close.svg" alt="">
+            </div>
+        </div>
+    </div>
+    `
+
+    displayAnimals(continent)
     
     document.getElementById("close-button").addEventListener("click", closeContinent)
 }
-
-
 
 function closeContinent() {
     document.getElementById("continents-container").innerHTML = ""
@@ -36,15 +52,59 @@ function closeContinent() {
 
 
 
+let continents = {
+    "europe": {
+        name: "Europe",
+        animals: [],
+    },
 
-let animalsFromEurope = []
-let animalsFromNorthAmerica = []
-let animalsFromSouthAmerica = []
-let animalsFromAsia = []
-let animalsFromOceania = []
-let animalsFromAfrica = []
-let animalsFromAntarctica = []
-let animalsFromOceans = []
+    "north-america": {
+        name: "North America",
+        animals: [],
+    },
+
+    "south-america": {
+        name: "South America",
+        animals: [],
+    },
+
+    "asia": {
+        name: "Asia",
+        animals: [],
+    },
+
+    "africa": {
+        name: "Africa",
+        animals: [],
+    },
+
+    "oceania": {
+        name: "Oceania",
+        animals: [],
+    },
+
+
+    "antarctica": {
+        name: "Antarctica",
+        animals: [],
+    },
+
+    "oceans": {
+        name: "oceans",
+        animals: [],
+    },
+
+}
+
+
+let animalsFromEurope = continents.europe.animals
+let animalsFromNorthAmerica = continents["north-america"].animals
+let animalsFromSouthAmerica = continents["south-america"].animals
+let animalsFromAsia = continents.asia.animals
+let animalsFromOceania = continents.oceania.animals
+let animalsFromAfrica = continents.africa.animals
+let animalsFromAntarctica = continents.antarctica.animals
+let animalsFromOceans = continents.oceans.animals
 
 await animalsByContinent()
 
@@ -58,29 +118,29 @@ async function animalsByContinent() {
             for (let i = 0; i < animals.length; i++) {
                 for (let j = 0; j < animals[i].range.continents.length; j++) {
                     if (animals[i].range.continents[j] == "Europe") {
-                        animalsFromEurope.push(animals[i].name)
+                        continents.europe.animals.push(animals[i].name)
                     }
 
                     if (animals[i].range.continents[j] == "Asia") {
-                        animalsFromAsia.push(animals[i].name)
+                        continents.asia.animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "North America") {
-                        animalsFromNorthAmerica.push(animals[i].name)
+                        continents["north-america"].animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "South America") {
-                        animalsFromSouthAmerica.push(animals[i].name)
+                        continents["south-america"].animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "Oceania") {
-                        animalsFromOceania.push(animals[i].name)
+                        continents.oceania.animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "Africa") {
-                        animalsFromAfrica.push(animals[i].name)
+                        continents.africa.animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "Antarctica") {
-                        animalsFromAntarctica.push(animals[i].name)
+                        continents.antarctica.animals.push(animals[i].name)
                     }
                     if (animals[i].range.continents[j] == "Oceans") {
-                        animalsFromOceans.push(animals[i].name)
+                        continents.oceans.animals.push(animals[i].name)
                     }
                 }
             }
@@ -97,22 +157,12 @@ async function animalsByContinent() {
         })
 }
 
-// console.log(animalsFromEurope);
-// console.log(animalsFromAsia);
-// console.log(animalsFromNorthAmerica)
-// console.log(animalsFromSouthAmerica)
-// console.log(animalsFromAfrica)
-// console.log(animalsFromOceania)
-// console.log(animalsFromOceans)
-// console.log(animalsFromAntarctica)
-
-// hacerlo para que funcionen todos los continentes
-function displayAnimals() {
-    for (let i = 0; i < animalsFromEurope.length; i++) {
+function displayAnimals(continent) {
+    for (let i = 0; i < continents[continent].animals.length; i++) {
                
         document.getElementById("animals-container").innerHTML += `
         <li class="list-item">
-            <h3 class="animal-name italianno-regular">${animalsFromEurope[i]}</h3>
+            <h3 class="animal-name italianno-regular">${continents[continent].animals[i]}</h3>
         </li>`
     }
 }
