@@ -1,23 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @font-face {
     font-family: cardenio-regular;
-    src: url(fonts/CardenioModern-Regular.woff);
+    src: url(../fonts/CardenioModern-Regular.woff);
     font-weight: 400;
 }
 
 @font-face {
     font-family: cardenio-bold;
-    src: url(fonts/CardenioModern-Bold.woff);
+    src: url(../fonts/CardenioModern-Bold.woff);
     font-weight: 700;
 }
 
-:root {
-    --dark-color: #2a1b16;
-    --light-color: #f9f7f2;
-}
+
 
 .cardenio-regular {
     font-family: cardenio-regular;
@@ -37,11 +34,12 @@
   font-style: normal;
 }
 
-.mrs-saint-delafield-regular {
-    font-family: "Mrs Saint Delafield", cursive;
-    font-weight: 400;
-    font-style: normal;
+.italianno-regular {
+  font-family: "Italianno", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
+
 
 /* * {
     border: solid 1px red;
@@ -49,5 +47,5 @@
 
 body {
     margin: 0;
-    background-color: #f9f7f2;
+    background-color: var(--background-light);
 }
