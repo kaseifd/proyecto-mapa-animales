@@ -20,11 +20,18 @@ await fetch("images/world-map.svg")
 async function openContinent(continent) {
 
     await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
-        let continentsContainerHTML = document.getElementById("continents-container")
-        continentsContainerHTML.innerHTML = data
+        document.getElementById("continents-container").innerHTML = data
     })
 
     displayAnimals()
+    
+    document.getElementById("close-button").addEventListener("click", closeContinent)
+}
+
+
+
+function closeContinent() {
+    document.getElementById("continents-container").innerHTML = ""
 }
 
 
@@ -90,18 +97,22 @@ async function animalsByContinent() {
         })
 }
 
-console.log(animalsFromEurope);
-console.log(animalsFromAsia);
-console.log(animalsFromNorthAmerica)
-console.log(animalsFromSouthAmerica)
-console.log(animalsFromAfrica)
-console.log(animalsFromOceania)
-console.log(animalsFromOceans)
-console.log(animalsFromAntarctica)
+// console.log(animalsFromEurope);
+// console.log(animalsFromAsia);
+// console.log(animalsFromNorthAmerica)
+// console.log(animalsFromSouthAmerica)
+// console.log(animalsFromAfrica)
+// console.log(animalsFromOceania)
+// console.log(animalsFromOceans)
+// console.log(animalsFromAntarctica)
 
 // hacerlo para que funcionen todos los continentes
 function displayAnimals() {
     for (let i = 0; i < animalsFromEurope.length; i++) {
-        document.getElementById("animals-container").innerHTML += `<h3 class="animal-name italianno-regular">${animalsFromEurope[i]}</h3>`
+               
+        document.getElementById("animals-container").innerHTML += `
+        <li class="list-item">
+            <h3 class="animal-name italianno-regular">${animalsFromEurope[i]}</h3>
+        </li>`
     }
 }

@@ -5,41 +5,74 @@
     padding: 24px 0;
     top: 55%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(-1deg);
     border-radius: 20px;
     box-shadow: 0px 10px 30px -5px var(--water-box-shadow);
 }
 
-
-#left-page, #right-page {
-    width: 300px;
+#left-page,
+#right-page {
+    box-sizing: border-box;
+    width: 500px;
     height: 400px;
     padding: 0 24px;
-
 }
 
-
-#left-page img{
+#left-page img {
     width: 100%;
 }
 
-#right-page{
-    border-left: 1px solid var(--land-medium);
+#right-page {
+    border-left: 1px solid var(--land-light);
     position: relative;
-
 }
-#right-page h2{
+#right-page h2 {
     font-size: 24px;
     margin: 12px 0;
     color: var(--text-on-light);
+    text-align: center;
 }
 
-.animal-name{
+#list-container {
+    box-sizing: border-box;
+    max-height: 348px;
+    overflow-y: auto;
+    border-top: 1px solid var(--land-light);
+    border-bottom: 1px solid var(--land-light);
+    text-align: center;
+    /* Oculta la barra en Firefox */
+    scrollbar-width: none;
+    /* Oculta la barra en Internet Explorer/Edge antiguo */
+    -ms-overflow-style: none;
+}
+
+/* 2. Oculta la barra en Chrome, Safari y Edge moderno SOLO para este contenedor */
+.contenedor-lista::-webkit-scrollbar {
+    display: none; /* Hace invisible la barra de esta sección */
+}
+
+#animals-container {
+    list-style: none;
+    padding: 12px 0;
+    margin: 0;
+}
+
+.columns-list {
+    column-count: 2;
+    column-gap: 20px;
+}
+
+.list-item {
+    break-inside: avoid;
+}
+
+.animal-name {
     font-size: 24px;
     margin: 0;
     color: var(--text-on-light);
     line-height: 32px;
 }
+
 .animal-name::before {
     content: "\261E";
     display: inline-block;
@@ -58,7 +91,7 @@
     margin-right: 4px;
 }
 
-.close-button {
+#close-button {
     position: absolute;
     top: 0;
     right: 24px;
