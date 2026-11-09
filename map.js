@@ -56,7 +56,6 @@ let animalsFromOceans = continents.oceans.animals
 
 displayMap()
 
-
 async function displayMap() {
     await fetch("images/world-map.svg")
         .then((response => response.text()))
@@ -67,7 +66,7 @@ async function displayMap() {
             // Open Europe
             document.getElementById("europe").addEventListener("click", () => openContinent("europe"))
             document.getElementById("circle-europe").addEventListener("click", () => openContinent("europe"))
-            
+
             // Open North America
             document.getElementById("north-america").addEventListener("click", () => openContinent("north-america"))
             document.getElementById("circle-north-america").addEventListener("click", () => openContinent("north-america"))
@@ -94,16 +93,22 @@ async function displayMap() {
 
             // Open oceans
             document.getElementById("circle-oceans").addEventListener("click", () => openContinent("oceans"))
-    
-            sortAnimalsByContinent()
         }))
+
+    await sortAnimalsByContinent()
+
+    displayAnimalsNumber("europe")
+    displayAnimalsNumber("north-america")
+    displayAnimalsNumber("south-america")
+    displayAnimalsNumber("asia")
+    displayAnimalsNumber("antarctica")
+    displayAnimalsNumber("africa")
+    displayAnimalsNumber("oceania")
+    displayAnimalsNumber("oceans")
+
 }
 
 function openContinent(continent) {
-
-    // await fetch(`${continent}-info.html`).then(res => res.text()).then(data => {
-    //     document.getElementById("continents-container").innerHTML = data
-    // })
 
     document.getElementById("continents-container").innerHTML = `
     <div id="${continent}-info" class="continent-info">
@@ -124,7 +129,7 @@ function openContinent(continent) {
     `
 
     displayAnimals(continent)
-    
+
     document.getElementById("close-button").addEventListener("click", closeContinent)
 }
 
@@ -183,10 +188,14 @@ async function sortAnimalsByContinent() {
 
 function displayAnimals(continent) {
     for (let i = 0; i < continents[continent].animals.length; i++) {
-               
+
         document.getElementById("animals-container").innerHTML += `
         <li class="list-item">
             <h3 class="animal-name italianno-regular">${continents[continent].animals[i]}</h3>
         </li>`
     }
+}
+
+async function displayAnimalsNumber(continent) {
+    document.getElementById(`circle-${continent}`).innerHTML = `<p class="animals-number inter-regular">${continents[continent].animals.length}</p>`
 }
