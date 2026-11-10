@@ -116,6 +116,38 @@ function openContinent(continent) {
             <div id="left-page-map"> 
                 ${svgHTMLtag}
             </div>
+
+            <ul id="left-page-legend" class="columns-list"> 
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle critically-endangered"></div>
+                    <p class="conservation-status cardenio-regular">Critically endangered</p>
+                </li>
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle endangered"></div>
+                    <p class="conservation-status cardenio-regular">Endangered</p>
+                </li>
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle vulnerable"></div>
+                    <p class="conservation-status cardenio-regular">Vulnerable</p>
+                </li>
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle near-threatened"></div>
+                    <p class="conservation-status cardenio-regular">Near threatened</p>
+                </li>
+                 <li class="list-item legend-item"> 
+                    <div class="legend-circle least-concern"></div>
+                    <p class="conservation-status cardenio-regular">Least Concern</p>
+                </li>
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle domesticated"></div>
+                    <p class="conservation-status cardenio-regular">Domesticated</p>
+                </li>
+                <li class="list-item legend-item"> 
+                    <div class="legend-circle not-evaluated"></div>
+                    <p class="conservation-status cardenio-regular">Not Evaluated</p>
+                </li>
+            </ul>
+
         </div>
         <div id="right-page">
             <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
@@ -132,12 +164,12 @@ function openContinent(continent) {
     // Change color of the selected continent / ocean
     if (continent != "oceans") {
         document.getElementById(`${continent}`).classList.add("active")
-        
+
     } else {
         document.getElementById(`left-page-map`).style.background = "var(--accent-background)"
     }
 
-    
+
     displayAnimals(continent)
 
     document.getElementById("close-button").addEventListener("click", closeContinent)
@@ -157,42 +189,74 @@ async function sortAnimalsByContinent() {
             for (let i = 0; i < animals.length; i++) {
                 for (let j = 0; j < animals[i].range.continents.length; j++) {
                     if (animals[i].range.continents[j] == "Europe") {
-                        continents.europe.animals.push(animals[i].name)
+                        continents.europe.animals.push(animals[i])
                     }
 
                     if (animals[i].range.continents[j] == "Asia") {
-                        continents.asia.animals.push(animals[i].name)
+                        continents.asia.animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "North America") {
-                        continents["north-america"].animals.push(animals[i].name)
+                        continents["north-america"].animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "South America") {
-                        continents["south-america"].animals.push(animals[i].name)
+                        continents["south-america"].animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "Oceania") {
-                        continents.oceania.animals.push(animals[i].name)
+                        continents.oceania.animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "Africa") {
-                        continents.africa.animals.push(animals[i].name)
+                        continents.africa.animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "Antarctica") {
-                        continents.antarctica.animals.push(animals[i].name)
+                        continents.antarctica.animals.push(animals[i])
                     }
                     if (animals[i].range.continents[j] == "Oceans") {
-                        continents.oceans.animals.push(animals[i].name)
+                        continents.oceans.animals.push(animals[i])
                     }
                 }
             }
 
             // Ordena los arrays alfabéticamente
-            animalsFromEurope.sort()
-            animalsFromAsia.sort()
-            animalsFromNorthAmerica.sort()
-            animalsFromSouthAmerica.sort()
-            animalsFromAfrica.sort()
-            animalsFromOceania.sort()
-            animalsFromAntarctica.sort()
-            animalsFromOceans.sort()
+            animalsFromEurope.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromAsia.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromNorthAmerica.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromSouthAmerica.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromAfrica.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromOceania.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromAntarctica.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
+            animalsFromOceans.sort((a, b) => {
+                if (a.name < b.name) return -1;
+                if (a.name > b.name) return 1;
+                return 0;
+            })
         })
 }
 
@@ -200,8 +264,9 @@ function displayAnimals(continent) {
     for (let i = 0; i < continents[continent].animals.length; i++) {
 
         document.getElementById("animals-container").innerHTML += `
-        <li class="list-item">
-            <h3 class="animal-name italianno-regular">${continents[continent].animals[i]}</h3>
+        <li class="list-item animal-item">
+            <h3 class="animal-name italianno-regular">${continents[continent].animals[i].name}</h3>
+            <div class="legend-circle ${continents[continent].animals[i].conservationStatus.toLowerCase().replace(" ", "-")}"></div>
         </li>`
     }
 }

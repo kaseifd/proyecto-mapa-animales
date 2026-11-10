@@ -18,10 +18,36 @@
     padding: 0 24px;
 }
 
-
 .active path{
     fill: var(--accent-background) !important;
 }
+
+
+#left-page-legend {
+    list-style: none;
+    padding: 0;
+}
+
+
+
+.legend-item{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+
+.legend-circle {
+    width: 10px;
+    height: 10px;
+    border-radius: 99999999px;
+}
+
+.conservation-status{
+    margin: 0;
+}
+
 
 #right-page {
     border-left: 1px solid var(--land-light);
@@ -67,6 +93,14 @@
     break-inside: avoid;
 }
 
+
+.animal-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
 .animal-name {
     font-size: 24px;
     margin: 0;
@@ -97,3 +131,39 @@
     top: 0;
     right: 24px;
 }
+
+
+
+
+
+
+/* Legend colors */
+
+.critically-endangered {
+    background-color: #f94144;
+}
+
+.endangered {
+    background-color: #f3722c;
+}
+
+.vulnerable {
+    background-color: #f9c74f;
+}
+
+.near-threatened {
+    background-color: #bebe6d;
+}
+
+.least-concern {
+    background-color: #6dbe71;
+}
+
+.domesticated {
+    background-color: #4399aa;
+}
+
+.not-evaluated {
+    background-color: hsl(208, 5%, 70%);
+}
+
