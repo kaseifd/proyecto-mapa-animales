@@ -18,8 +18,9 @@
     padding: 0 24px;
 }
 
-#left-page img {
-    width: 100%;
+
+.active path{
+    fill: var(--accent-background) !important;
 }
 
 #right-page {

@@ -113,7 +113,9 @@ function openContinent(continent) {
     document.getElementById("continents-container").innerHTML = `
     <div id="${continent}-info" class="continent-info">
         <div id="left-page">
-            <img src="images/world-map.svg" alt="">
+            <div id="left-page-map"> 
+                ${svgHTMLtag}
+            </div>
         </div>
         <div id="right-page">
             <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
@@ -127,7 +129,15 @@ function openContinent(continent) {
         </div>
     </div>
     `
+    // Change color of the selected continent / ocean
+    if (continent != "oceans") {
+        document.getElementById(`${continent}`).classList.add("active")
+        
+    } else {
+        document.getElementById(`left-page-map`).style.background = "var(--accent-background)"
+    }
 
+    
     displayAnimals(continent)
 
     document.getElementById("close-button").addEventListener("click", closeContinent)
