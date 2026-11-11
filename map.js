@@ -269,6 +269,7 @@ function displayAnimals(continent) {
             <div class="legend-circle ${continents[continent].animals[i].conservationStatus.toLowerCase().replace(" ", "-")}"></div>
         </li>`
     }
+    selectAnimals()
 }
 
 async function displayAnimalsNumber(continent) {

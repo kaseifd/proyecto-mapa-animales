@@ -1,4 +1,4 @@
-.continent-info {
+.continent-info, .animal-info {
     display: flex;
     background-color: var(--background-light);
     position: absolute;

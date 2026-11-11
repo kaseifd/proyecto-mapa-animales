@@ -34,6 +34,13 @@
   font-style: normal;
 }
 
+.inter-light {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
 .italianno-regular {
   font-family: "Italianno", cursive;
   font-weight: 400;
