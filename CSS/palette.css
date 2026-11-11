@@ -6,7 +6,7 @@
     --background-dark: hsl(30, 25%, 10%);
     --text-on-light: hsl(30, 25%, 10%);
     --text-on-dark: hsl(30, 25%, 96%);
-    
+
     --water-light: hsl(170, 100%, 96%);
     --water-medium: hsl(170, 50%, 80%);
     --water-dark: hsl(170, 60%, 30%);
@@ -15,12 +15,10 @@
     --land-light: hsl(30, 25%, 75%);
     --land-medium: hsl(30, 25%, 55%);
     --land-dark: hsl(30, 25%, 25%);
-    
+
     --accent-background: hsl(75, 86%, 50%);
     --accent-stroke: hsl(75, 86%, 40%);
-    
-    
-    
+
     --background-blur: hsl(100, 100%, 100%, 50%);
     --grey-10: hsl(0, 0%, 10%);
     --grey-20: hsl(0, 0%, 20%);
@@ -31,4 +29,12 @@
     --grey-70: hsl(0, 0%, 70%);
     --grey-80: hsl(0, 0%, 80%);
     --grey-90: hsl(0, 0%, 90%);
+
+    --conservation-status-critically-endangered: hsl(359, 94%, 62%);
+    --conservation-status-endangered: hsl(33, 94%, 55%);
+    --conservation-status-vulnerable: hsl(51, 100%, 54%);
+    --conservation-status-near-threatened: hsl(60, 38%, 59%);
+    --conservation-status-least-concern: hsl(123, 38%, 59%);
+    --conservation-status-domesticated: hsl(190, 43%, 46%);
+    --conservation-status-not-evaluated: hsl(208, 5%, 70%);
 }

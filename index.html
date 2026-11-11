@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto 1 - Mapa animales</title>
     <link rel="stylesheet" href="CSS/fonts.css">
-    <link rel="stylesheet" href="CSS/palette.css">
+    <link id="color-palette" rel="stylesheet" href="CSS/palette.css">
     <link rel="stylesheet" href="CSS/map-style.css">
     <link rel="stylesheet" href="CSS/book-style.css">
 </head>
@@ -25,6 +25,9 @@
             </div>
 
             <div id="filter-settings-container">
+                <div id="style-button">
+                    <img class="icon" src="icons/icon-palette-color.svg" alt="">
+                </div>
                 <div id="filter-settings-button">
                     <span class="label cardenio-regular">filters</span>
                     <img src="icons/icon-filters.svg" alt="">
@@ -66,6 +69,7 @@
     </div>
 
     <script type="module" src="map.js"></script>
+    <script type="module" src="style-layout.js"></script>
     <!-- <script type="module" src="apps.js"></script> -->
 </body>
 
