@@ -108,8 +108,10 @@ async function displayMap() {
 
 }
 
-function openContinent(continent) {
+let currentContinent = ""
 
+function openContinent(continent) {
+    currentContinent = continent
     document.getElementById("continents-container").innerHTML = `
     <div id="${continent}-info" class="continent-info">
         <div id="left-page">
@@ -169,11 +171,13 @@ function openContinent(continent) {
         document.getElementById(`left-page-map`).style.background = "var(--accent-background)"
     }
 
-
     displayAnimals(continent)
 
     document.getElementById("close-button").addEventListener("click", closeContinent)
+
 }
+
+
 
 function closeContinent() {
     document.getElementById("continents-container").innerHTML = ""
@@ -265,11 +269,11 @@ function displayAnimals(continent) {
 
         document.getElementById("animals-container").innerHTML += `
         <li class="list-item animal-item">
-            <h3 class="animal-name italianno-regular">${continents[continent].animals[i].name}</h3>
+            <h3 class="animal-name italianno-regular" id="${continents[continent].animals[i].slug}">${continents[continent].animals[i].name}</h3>
             <div class="legend-circle ${continents[continent].animals[i].conservationStatus.toLowerCase().replace(" ", "-")}"></div>
         </li>`
     }
-    selectAnimals()
+    addSelectEventToAnimalsList(continents, continent)
 }
 
 async function displayAnimalsNumber(continent) {

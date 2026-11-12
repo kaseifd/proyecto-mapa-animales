@@ -1,23 +1,14 @@
-// async function getAnimalsName() {
-//     document.getElementsByClassName("animal-name")
-//  }
-
-
-
-
-
-function selectAnimals() {
-    let animals = document.querySelectorAll(".animal-name")
-
-    animals.forEach(animal => {
-        animal.addEventListener("click", () => displayAnimalCard(animal.innerText))
+function addSelectEventToAnimalsList(continents, continent) {
+    continents[continent].animals.forEach(animal => {
+        document.getElementById(animal.slug).addEventListener("click", () => openAnimalCard(animal))
     })
 }
 
-
-async function displayAnimalCard(animal) {
-    let animalNameForURL = animal.toLowerCase().replaceAll(" ", "-").normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+async function openAnimalCard(animal) {
+    // currentContinent = document.getElementById("")
+    // console.log(continentHTML);
+    
+    let animalNameForURL = animal.slug
     await fetch(`https://globalanimalguide.org/api/animals/${animalNameForURL}.json`)
         .then(response => response.json())
         .then(animalInfo => {
@@ -52,16 +43,17 @@ async function displayAnimalCard(animal) {
 
 await displayAnimalPhoto(animalNameForURL)
 
-
-// document.getElementById("close-button").addEventListener("click", closeAnimalCard())
+document.getElementById("close-button").addEventListener("click", closeAnimalCard)
+document.getElementById("back-button").addEventListener("click", back)
 }
 
-// function closeAnimalCard() {
-//     document.getElementById("continents-container").innerHTML = ""
-// }
+function closeAnimalCard() {
+    document.getElementById("continents-container").innerHTML = ""
+}
 
-
-
+function back() {
+    openContinent(currentContinent)
+}
 
 async function getAnimalImageURL(animalName) {
 
@@ -96,4 +88,3 @@ async function displayAnimalPhoto(animalName) {
 
     document.getElementById("animal-photo").src = animalURL   
 }
-
