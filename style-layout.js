@@ -1,15 +1,13 @@
-console.log(document.getElementById("style-button"));
+function changePalette() {
+   let currentCSS = document.getElementById("color-palette").title
 
-document.getElementById("style-button").addEventListener("click", () => {
-   console.log("hola")
-})
+   if (currentCSS === "default-palette") {
+      document.getElementById("color-palette").href = "../CSS/alternative-palette.css"
+      currentCSS = document.getElementById("color-palette").title =  "alternative-palette"
 
-// document.addEventListener("click", (event) => {
-//     console.log("Elemento pulsado:", event.target)
-// })
-
-// function changePalette() {
-//     console.log("hola");
-    
-//     document.getElementById("color-palette").href = "CSS/alternative-palette.css"
-// }
+   } else if (currentCSS === "alternative-palette") {
+      document.getElementById("color-palette").href = "CSS/default-palette.css"
+      currentCSS = document.getElementById("color-palette").title = "default-palette"
+      
+   }
+}
