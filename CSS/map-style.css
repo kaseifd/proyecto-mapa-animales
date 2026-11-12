@@ -14,6 +14,7 @@ svg {
     margin: 32px;
     border: 1px solid var(--water-medium);
     border-radius: 20px;
+    overflow: hidden;
 }
 
 #header {
@@ -34,10 +35,58 @@ svg {
     width: 200px;
 }
 
-#filter-settings-container{
+#search-bar {
+    position: relative;
+}
+
+#search-bar input {
+    padding: 14px;
+    padding-left: 24px;
+    border-radius: 100px;
+    border: 1px solid var(--grey-80);
+    color: var(--text-on-light);
+    background-color: var(--background-blur);
+    backdrop-filter: blur(5px);
+    font-size: 24px;
+    width: 250px;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2);
+}
+
+#search-bar input:placeholder-shown {
+    color: var(--grey-30);
+}
+
+#search-bar input:focus:placeholder-shown {
+    width: 700px;
+    border: 1px solid var(--grey-80);
+    box-shadow: none;
+    outline: none;
+}
+
+#search-bar input:focus {
+    width: 700px;
+    box-shadow: 0 0 20.8px 0 var(--water-box-shadow);
+    border: none;
+    outline: none;
+}
+
+#search-bar-icon {
+    position: absolute;
+    top: 23%;
+    right: 16px;
+    display: block;
+}
+
+#search-bar-icon .icon,
+#style-button .icon, .close-icon  {
+    display: block;
+}
+
+#filter-settings-container {
     display: flex;
     justify-content: end;
     gap: 12px;
+    position: relative;
 }
 
 #style-button {
@@ -45,7 +94,7 @@ svg {
     background-color: var(--background-blur);
     backdrop-filter: blur(5px);
     border-radius: 50px;
-    padding: 12px ;
+    padding: 12px;
 }
 
 #style-button .icon {
@@ -76,51 +125,111 @@ svg {
     outline: none;
 }
 
-#search-bar {
-    position: relative;
-}
-
-#search-bar input {
-    padding: 14px;
-    padding-left: 24px;
-    border-radius: 100px;
-    border: 1px solid var(--grey-80);
-    color: var(--text-on-light);
-    background-color: var(--background-blur);
-    backdrop-filter: blur(5px);
-    font-size: 24px;
-    width: 250px;
-    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.2);
-}
-
-#search-bar input:placeholder-shown{
-    color: var(--grey-30);
-}
-
-#search-bar input:focus:placeholder-shown {
-    width: 700px;
-    border: 1px solid var(--grey-80);
-    box-shadow: none;
-    outline: none;
-}
-
-#search-bar input:focus {
-    width: 700px;
-    box-shadow: 0 0 20.8px 0 var(--water-box-shadow);
-    border: none;
-    outline: none;
-}
-
-#search-bar-icon {
+#filter-options-container {
     position: absolute;
-    top: 23%;
-    right: 16px;
-    display: block;
+    background-color: var(--background-blur);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    top: calc(-32px - 1em);
+    right: -999px;
+    z-index: 1; 
+    width: 300px;
+    height: 566px;
+    box-sizing: border-box;
+    transition: right 0.7s ease-in-out;
 }
 
-#search-bar-icon .icon, #style-button .icon {
-    display: block;
+
+#filter-options-container.opened{
+    right: -44px;
+    transition: all 0.5s ease;
 }
+
+#filter-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#filter-title p {
+    font-size: 24px;
+    margin: 0;
+}
+
+
+
+
+#category-filter {
+    margin-bottom: 32px;
+}
+
+.filter-label{
+    font-size: 20px;
+    margin: 4px 0 12px 0;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-option {
+    background-color: var(--background-blur);
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 999999px;
+    width: fit-content;
+}
+
+.filter-option p {
+    margin: 0;
+    text-align: center;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.filter-option:hover {
+    background-color: var(--accent-background);
+    border-color: var(--accent-stroke);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,7 +237,7 @@ svg {
     background-color: var(--accent-background);
     border: 1px solid var(--accent-stroke);
     width: 20px;
-    height: 20px; 
+    height: 20px;
     border-radius: 9999999px;
     position: absolute;
     padding: 8px;
@@ -142,6 +251,7 @@ svg {
     text-align: center;
     color: var(--text-on-light);
     font-size: 12px;
+    user-select: none;
 }
 
 #circle-europe {

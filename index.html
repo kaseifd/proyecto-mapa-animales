@@ -29,43 +29,111 @@
                 <div id="style-button" onclick="changePalette()">
                     <img class="icon" src="icons/icon-palette-color.svg" alt="">
                 </div>
-                <div id="filter-settings-button">
+                <div id="filter-settings-button" onclick="openFilters()">
                     <span class="label cardenio-regular">filters</span>
                     <img src="icons/icon-filters.svg" alt="">
                 </div>
+
+
+                <div id="filter-options-container">
+                    <div id="filter-title">
+                        <p class="cardenio-regular">Filter by</p>
+                        <div onclick="closeFilters()">
+                            <img class="close-icon" src="icons/icon-close.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div id="filters-content">
+                        <div id="category-filter">
+                            <p class="filter-label cardenio-bold">Category</p>
+                            <div class="filter-options">
+                                <div id="mammals" class="filter-option">
+                                    <p class="cardenio-regular">Mammals</p>
+                                </div>
+                                <div id="birds" class="filter-option">
+                                    <p class="cardenio-regular">Birds</p>
+                                </div>
+                                <div id="fish" class="filter-option">
+                                    <p class="cardenio-regular">Fish</p>
+                                </div>
+                                <div id="reptiles" class="filter-option">
+                                    <p class="cardenio-regular">Reptiles</p>
+                                </div>
+                                <div id="amphibians" class="filter-option">
+                                    <p class="cardenio-regular">Amphibians</p>
+                                </div>
+                                <div id="insects" class="filter-option">
+                                    <p class="cardenio-regular">Insects</p>
+                                </div>
+                                <div id="invertebrates" class="filter-option">
+                                    <p class="cardenio-regular">Invertebrates</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="conservation-status-filter">
+
+                            <p class="filter-label cardenio-bold">Conservation status</p>
+
+                            <div class="filter-options">
+                                <div id="mammals" class="filter-option">
+                                    <p class="cardenio-regular">Critically endangered</p>
+                                </div>
+                                <div id="birds" class="filter-option">
+                                    <p class="cardenio-regular">Endangered</p>
+                                </div>
+                                <div id="fish" class="filter-option">
+                                    <p class="cardenio-regular">Vulnerable</p>
+                                </div>
+                                <div id="reptiles" class="filter-option">
+                                    <p class="cardenio-regular">Near threatened</p>
+                                </div>
+                                <div id="amphibians" class="filter-option">
+                                    <p class="cardenio-regular">Least concern</p>
+                                </div>
+                                <div id="insects" class="filter-option">
+                                    <p class="cardenio-regular">Domesticated</p>
+                                </div>
+                                <div id="invertebrates" class="filter-option">
+                                    <p class="cardenio-regular">Not Evaluated</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
         <div id="circles-container">
             <div class="circle" id="circle-europe">
-                
+
             </div>
             <div class="circle" id="circle-africa">
-                
+
             </div>
             <div class="circle" id="circle-north-america">
-                
+
             </div>
             <div class="circle" id="circle-south-america">
-                
+
             </div>
             <div class="circle" id="circle-oceania">
-                
+
             </div>
             <div class="circle" id="circle-asia">
-                
+
             </div>
             <div class="circle" id="circle-antarctica">
-                
+
             </div>
             <div class="circle" id="circle-oceans">
-                
+
             </div>
 
         </div>
 
         <div id="continents-container">
-            
+
         </div>
     </div>
 
@@ -73,6 +141,7 @@
     <script src="style-layout.js"></script>
     <script src="animal-card.js"></script>
     <script src="search-bar.js"></script>
+    <script src="filters.js"></script>
     <!-- <script type="module" src="apps.js"></script> -->
 </body>
 
