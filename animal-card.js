@@ -5,9 +5,8 @@ function addSelectEventToAnimalsList(continents, continent) {
 }
 
 async function openAnimalCard(animal) {
-    // currentContinent = document.getElementById("")
-    // console.log(continentHTML);
-    
+     console.log(animal);
+      
     let animalNameForURL = animal.slug
     await fetch(`https://globalanimalguide.org/api/animals/${animalNameForURL}.json`)
         .then(response => response.json())
