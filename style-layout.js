@@ -2,7 +2,6 @@ loadCurrentPalette()
 
 function loadCurrentPalette() {
    let currentPalette = localStorage.getItem("currentPalette")
-   console.log(currentPalette);
 
    if (currentPalette == "default-palette" || !currentPalette) {
       document.getElementById("color-palette").href = "CSS/default-palette.css"
