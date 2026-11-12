@@ -1,13 +1,33 @@
-function changePalette() {
-   let currentCSS = document.getElementById("color-palette").title
+loadCurrentPalette()
 
-   if (currentCSS === "default-palette") {
-      document.getElementById("color-palette").href = "../CSS/alternative-palette.css"
-      currentCSS = document.getElementById("color-palette").title =  "alternative-palette"
+function loadCurrentPalette() {
+   let currentPalette = localStorage.getItem("currentPalette")
+   console.log(currentPalette);
 
-   } else if (currentCSS === "alternative-palette") {
+   if (currentPalette == "default-palette" || !currentPalette) {
       document.getElementById("color-palette").href = "CSS/default-palette.css"
-      currentCSS = document.getElementById("color-palette").title = "default-palette"
-      
+      localStorage.setItem("currentPalette", "default-palette")
+   }
+
+   if (currentPalette == "alternative-palette") {
+      document.getElementById("color-palette").href = "CSS/alternative-palette.css"
+      localStorage.setItem("currentPalette", "alternative-palette")
+   }
+}
+
+
+function changePalette() {
+   if (localStorage.getItem("currentPalette") == "default-palette") {
+      document.getElementById("color-palette").href = "CSS/alternative-palette.css"
+      localStorage.setItem("currentPalette", "alternative-palette")
+      return
+
+   }
+
+   //cambiar esto
+   if (localStorage.getItem("currentPalette") == "alternative-palette") {
+      document.getElementById("color-palette").href = "CSS/default-palette.css"
+      localStorage.setItem("currentPalette", "default-palette")
+      return
    }
 }
