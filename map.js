@@ -95,16 +95,24 @@ async function displayMap() {
             document.getElementById("circle-oceans").addEventListener("click", () => openContinent("oceans"))
         }))
 
-    await sortAnimalsByContinent()
+    await fetch("https://globalanimalguide.org/api/animals.json")
+        .then((response) => response.json())
+        .then((data) => {
+            let animals = data.animals 
+            // console.log(animals);
+            sortAnimalsByContinent(animals)}) 
+            
+    
+    
 
-    displayAnimalsNumber("europe")
-    displayAnimalsNumber("north-america")
-    displayAnimalsNumber("south-america")
-    displayAnimalsNumber("asia")
-    displayAnimalsNumber("antarctica")
-    displayAnimalsNumber("africa")
-    displayAnimalsNumber("oceania")
-    displayAnimalsNumber("oceans")
+    displayAnimalsNumber(continents["europe"], "europe")
+    displayAnimalsNumber(continents["north-america"], "north-america")
+    displayAnimalsNumber(continents["south-america"], "south-america")
+    displayAnimalsNumber(continents["asia"], "asia")
+    displayAnimalsNumber(continents["antarctica"], "antarctica")
+    displayAnimalsNumber(continents["africa"], "africa")
+    displayAnimalsNumber(continents["oceania"], "oceania")
+    displayAnimalsNumber(continents["oceans"], "oceans")
 
 }
 
@@ -183,12 +191,9 @@ function closeContinent() {
     document.getElementById("continents-container").innerHTML = ""
 }
 
-async function sortAnimalsByContinent() {
-    await fetch("https://globalanimalguide.org/api/animals.json")
-        .then((response) => response.json())
-        .then((data) => {
-            let animals = data.animals
 
+
+function sortAnimalsByContinent(animals) {
             // Todo este bucle clasifica los animales por continente y los mete en su array correspondiente
             for (let i = 0; i < animals.length; i++) {
                 for (let j = 0; j < animals[i].range.continents.length; j++) {
@@ -261,8 +266,10 @@ async function sortAnimalsByContinent() {
                 if (a.name > b.name) return 1;
                 return 0;
             })
-        })
-}
+
+            console.log(continents);
+             return continents
+        }
 
 function displayAnimals(continent) {
     for (let i = 0; i < continents[continent].animals.length; i++) {
@@ -276,6 +283,8 @@ function displayAnimals(continent) {
     addSelectEventToAnimalsList(continents, continent)
 }
 
-async function displayAnimalsNumber(continent) {
-    document.getElementById(`circle-${continent}`).innerHTML = `<p class="animals-number inter-regular">${continents[continent].animals.length}</p>`
+function displayAnimalsNumber(continent, continentName) {
+    console.log(continent);
+    
+    document.getElementById(`circle-${continentName}`).innerHTML = `<p class="animals-number inter-regular">${continent.animals.length}</p>`
 }
