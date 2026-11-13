@@ -130,18 +130,18 @@ svg {
     background-color: var(--background-blur);
     backdrop-filter: blur(8px);
     padding: 24px;
-    top: calc(-32px - 1em);
+    top: 0;
     right: -999px;
     z-index: 1; 
     width: 300px;
-    height: 566px;
+    height: 100%;
     box-sizing: border-box;
     transition: right 0.7s ease-in-out;
 }
 
 
 #filter-options-container.opened{
-    right: -44px;
+    right: 0;
     transition: all 0.5s ease;
 }
 
