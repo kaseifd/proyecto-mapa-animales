@@ -1,14 +1,14 @@
 function addSelectEventToAnimalsList(continents, continent) {
     continents[continent].animals.forEach(animal => {
-        document.getElementById(animal.slug).addEventListener("click", () => openAnimalCard(animal))
+        document.getElementById(animal.slug).addEventListener("click", () => openAnimalCard(animal.slug))
     })
 }
 
 async function openAnimalCard(animal) {
      console.log(animal);
       
-    let animalNameForURL = animal.slug
-    await fetch(`https://globalanimalguide.org/api/animals/${animalNameForURL}.json`)
+    // let animalNameForURL = animal.slug
+    await fetch(`https://globalanimalguide.org/api/animals/${animal}.json`)
         .then(response => response.json())
         .then(animalInfo => {
             document.getElementById("continents-container").innerHTML = `
@@ -40,7 +40,7 @@ async function openAnimalCard(animal) {
             `
         })
 
-await displayAnimalPhoto(animalNameForURL)
+await displayAnimalPhoto(animal)
 
 document.getElementById("close-button").addEventListener("click", closeAnimalCard)
 document.getElementById("back-button").addEventListener("click", back)

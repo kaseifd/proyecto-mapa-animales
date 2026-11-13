@@ -1,20 +1,32 @@
-window.addEventListener("keydown", (event) => {
-    if (event.key == "Enter") searchAnimal()
-})
+// window.addEventListener("keydown", (event) => {
+//     if (event.key == "Enter") searchAnimal()
+// })
 
 function searchAnimal() {
     let searchBarValue = document.getElementById("search-bar-input").value
 
-    let animalNameForURL = animalNameToNameForUrl(searchBarValue);
-    console.log(animalNameForURL);
-    
+    let continentsName = ["europe", "africa", "north-america", "south-america", "oceania", "oceans", "asia", "antarctica"]
 
-    //No funciona mientras en animal-card.js ponga let animalNameForURL = animal.slug (seria solo animal). Ver mañana como solucionarlo. Habra que cambiar la funcion de openAnimalCard
-    openAnimalCard(animalNameForURL)
+    document.getElementById("search-results").innerHTML = ``
+
+    let counter = 0
+
+    continentsName.forEach(continent => {
+        continents[continent].animals.forEach(animal => {
+            if ((animal.slug.includes(searchBarValue) || animal.name.includes(searchBarValue)) && counter <= 10) {
+                document.getElementById("search-results").innerHTML += `
+                <li class="search-result">${animal.name}</li>
+                `
+                counter++
+            }
+        })
+    })
+
+    // openAnimalCard(animalNameForURL)
 }
 
 function animalNameToNameForUrl(animalName) {
     return animalName.toLowerCase().replaceAll(" ", "-").normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
-    
+
 }

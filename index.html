@@ -19,10 +19,18 @@
                 <h1 class="cardenio-bold" id="logo">Animal Guide</h1>
             </div>
             <div id="search-bar">
-                <input id="search-bar-input" class="cardenio-regular" type="text" placeholder="Search an animal">
-                <div id="search-bar-icon">
-                    <img class="icon" src="icons/icon-search.svg" alt="">
+                <div>
+                    <input id="search-bar-input" class="cardenio-regular" type="text" placeholder="Search an animal"
+                        oninput="searchAnimal()">
+                    <div id="search-bar-icon">
+                        <img class="icon" src="icons/icon-search.svg" alt="">
+                    </div>
                 </div>
+
+                <ul id="search-results">
+                    <!-- <li class="search-result"></li> -->
+                </ul>
+
             </div>
 
             <div id="filter-settings-container">
@@ -35,72 +43,74 @@
                 </div>
 
 
-                <div id="filter-options-container">
-                    <div id="filter-title">
-                        <p class="cardenio-regular">Filter by</p>
-                        <div onclick="closeFilters()">
-                            <img class="close-icon" src="icons/icon-close.svg" alt="">
+
+
+            </div>
+        </div>
+
+        <div id="filter-options-container">
+            <div id="filter-title">
+                <p class="cardenio-regular">Filter by</p>
+                <div onclick="closeFilters()">
+                    <img class="close-icon" src="icons/icon-close.svg" alt="">
+                </div>
+            </div>
+
+            <div id="filters-content">
+                <div id="category-filter">
+                    <p class="filter-label cardenio-bold">Category</p>
+                    <div class="filter-options">
+                        <div id="mammals" class="filter-option">
+                            <p class="cardenio-regular">Mammals</p>
                         </div>
-                    </div>
-
-                    <div id="filters-content">
-                        <div id="category-filter">
-                            <p class="filter-label cardenio-bold">Category</p>
-                            <div class="filter-options">
-                                <div id="mammals" class="filter-option">
-                                    <p class="cardenio-regular">Mammals</p>
-                                </div>
-                                <div id="birds" class="filter-option">
-                                    <p class="cardenio-regular">Birds</p>
-                                </div>
-                                <div id="fish" class="filter-option">
-                                    <p class="cardenio-regular">Fish</p>
-                                </div>
-                                <div id="reptiles" class="filter-option">
-                                    <p class="cardenio-regular">Reptiles</p>
-                                </div>
-                                <div id="amphibians" class="filter-option">
-                                    <p class="cardenio-regular">Amphibians</p>
-                                </div>
-                                <div id="insects" class="filter-option">
-                                    <p class="cardenio-regular">Insects</p>
-                                </div>
-                                <div id="invertebrates" class="filter-option">
-                                    <p class="cardenio-regular">Invertebrates</p>
-                                </div>
-                            </div>
+                        <div id="birds" class="filter-option">
+                            <p class="cardenio-regular">Birds</p>
                         </div>
-                        <div id="conservation-status-filter">
-
-                            <p class="filter-label cardenio-bold">Conservation status</p>
-
-                            <div class="filter-options">
-                                <div id="mammals" class="filter-option">
-                                    <p class="cardenio-regular">Critically endangered</p>
-                                </div>
-                                <div id="birds" class="filter-option">
-                                    <p class="cardenio-regular">Endangered</p>
-                                </div>
-                                <div id="fish" class="filter-option">
-                                    <p class="cardenio-regular">Vulnerable</p>
-                                </div>
-                                <div id="reptiles" class="filter-option">
-                                    <p class="cardenio-regular">Near threatened</p>
-                                </div>
-                                <div id="amphibians" class="filter-option">
-                                    <p class="cardenio-regular">Least concern</p>
-                                </div>
-                                <div id="insects" class="filter-option">
-                                    <p class="cardenio-regular">Domesticated</p>
-                                </div>
-                                <div id="invertebrates" class="filter-option">
-                                    <p class="cardenio-regular">Not Evaluated</p>
-                                </div>
-                            </div>
+                        <div id="fish" class="filter-option">
+                            <p class="cardenio-regular">Fish</p>
+                        </div>
+                        <div id="reptiles" class="filter-option">
+                            <p class="cardenio-regular">Reptiles</p>
+                        </div>
+                        <div id="amphibians" class="filter-option">
+                            <p class="cardenio-regular">Amphibians</p>
+                        </div>
+                        <div id="insects" class="filter-option">
+                            <p class="cardenio-regular">Insects</p>
+                        </div>
+                        <div id="invertebrates" class="filter-option">
+                            <p class="cardenio-regular">Invertebrates</p>
                         </div>
                     </div>
                 </div>
+                <div id="conservation-status-filter">
 
+                    <p class="filter-label cardenio-bold">Conservation status</p>
+
+                    <div class="filter-options">
+                        <div id="mammals" class="filter-option">
+                            <p class="cardenio-regular">Critically endangered</p>
+                        </div>
+                        <div id="birds" class="filter-option">
+                            <p class="cardenio-regular">Endangered</p>
+                        </div>
+                        <div id="fish" class="filter-option">
+                            <p class="cardenio-regular">Vulnerable</p>
+                        </div>
+                        <div id="reptiles" class="filter-option">
+                            <p class="cardenio-regular">Near threatened</p>
+                        </div>
+                        <div id="amphibians" class="filter-option">
+                            <p class="cardenio-regular">Least concern</p>
+                        </div>
+                        <div id="insects" class="filter-option">
+                            <p class="cardenio-regular">Domesticated</p>
+                        </div>
+                        <div id="invertebrates" class="filter-option">
+                            <p class="cardenio-regular">Not Evaluated</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
