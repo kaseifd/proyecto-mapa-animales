@@ -24,15 +24,23 @@
     display: block;
 }
 
-#animal-continents-map{
+#animal-continents-map {
     width: 300px;
     height: 200px;
     position: absolute;
-    background-color: white;
+    border: solid 2px white;
+    background-color: var(--water-dark);
     top: 50%;
     left: -10%;
     transform: rotate(-3deg);
     box-shadow: 10px 10px 15px -10px var(--land-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#animal-continents-map svg {
+    object-fit: contain;
 }
 
 #animal-native-range {

@@ -9,7 +9,7 @@
 
     --water-light: hsl(170, 100%, 96%);
     --water-medium: hsl(170, 50%, 80%);
-    --water-dark: hsl(170, 60%, 30%);
+    --water-dark: hsl(170, 30%, 70%);
     --water-box-shadow: hsla(170, 100%, 30%, 0.25);
 
     --land-light: hsl(30, 25%, 75%);
@@ -21,6 +21,7 @@
 
     --accent-background: hsl(75, 86%, 50%);
     --accent-stroke: hsl(75, 86%, 40%);
+    --ocean-selected: hsl(75, 86%, 80%);
 
     --background-blur: hsl(100, 100%, 100%, 50%);
     --grey-10: hsl(0, 0%, 10%);

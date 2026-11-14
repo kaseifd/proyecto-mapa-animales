@@ -15,6 +15,9 @@ async function openAnimalCard(animalSlug) {
     // Load animal photo
     await renderAnimalPhoto(animalSlug)
 
+    // Change colors on map
+    highlightContinentsOnMap(animalInfo)
+
     // Add buttons events
     document.getElementById("close-button").addEventListener("click", closeAnimalCard)
 
@@ -142,4 +145,19 @@ async function renderAnimalPhoto(animalName) {
     let animalImageURL = await getAnimalImageURL(animalName)
 
     document.getElementById("animal-photo").src = animalImageURL
+}
+
+
+function highlightContinentsOnMap(animalInfo) {
+
+    animalInfo.range.continents.forEach((continent) => {
+
+        if (continent != "Oceans") {
+            document.getElementById(continent.toLowerCase().replaceAll(" ", "-")).classList.add("active")
+
+        } else {
+            document.getElementById(`animal-continents-map`).style.background = "var(--ocean-selected)"
+        }
+
+    })
 }
