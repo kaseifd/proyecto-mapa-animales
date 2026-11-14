@@ -126,7 +126,7 @@ function showContinentDetails(continent) {
                 ${worldMapSVG}
             </div>
 
-            <ul id="left-page-legend" class="columns-list"> 
+            <ul id="left-page-legend"> 
                 <li class="list-item legend-item"> 
                     <div class="legend-circle critically-endangered"></div>
                     <p class="conservation-status cardenio-regular">Critically endangered</p>
@@ -159,7 +159,7 @@ function showContinentDetails(continent) {
 
         </div>
         <div id="right-page">
-            <h2 class="italianno-regular">Animals from ${continents[continent].name}</h2>
+            <h2 class="cardenio-bold">Animals from ${continents[continent].name}</h2>
             <div id="list-container">
                 <ul id="animals-container" class="columns-list"></ul>
             </div>
