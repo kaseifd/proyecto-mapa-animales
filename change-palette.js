@@ -14,7 +14,6 @@ function loadCurrentPalette() {
    }
 }
 
-
 function changePalette() {
    if (localStorage.getItem("currentPalette") == "default-palette") {
       document.getElementById("color-palette").href = "CSS/alternative-palette.css"
@@ -23,7 +22,6 @@ function changePalette() {
 
    }
 
-   //cambiar esto
    if (localStorage.getItem("currentPalette") == "alternative-palette") {
       document.getElementById("color-palette").href = "CSS/default-palette.css"
       localStorage.setItem("currentPalette", "default-palette")
