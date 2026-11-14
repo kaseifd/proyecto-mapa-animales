@@ -25,33 +25,80 @@ async function openAnimalCard(animalSlug) {
 function renderAnimalCard(animalInfo) {
     document.getElementById("continents-container").innerHTML = `
         <div id="${animalInfo.slug}-info" class="animal-info">
-            <div id="left-page">
-                <div id="back-button">
-                    <img class="icon" src="icons/icon-back.svg" alt="">
-                </div>
+    <div id="left-page">
+        <div id="back-button">
+            <img class="icon" src="icons/icon-back.svg" alt="">
+        </div>
 
-                <div >
-                    <img id="animal-photo" src="../images/world-map.svg" alt="">
-                </div>
+        <div>
+            <img id="animal-photo" src="../images/world-map.svg" alt="">
+        </div>
 
-                <div>
-                    <p id="animal-description" class="inter-light">${animalInfo.summary}</p>
-                </div>
+        <div id="animal-continents-map">
+            ${worldMapSVG}
+        </div>
+
+        <div id="animal-native-range">
+            <p class="italianno-regular">${animalInfo.range.nativeRange}</p>
+        </div>
+    </div>
+
+    <div id="right-page">
+        <div id="animal-name">
+            <h2 class="cardenio-bold" id="common-name">${animalInfo.name}</h2>
+            <h3 class="italianno-regular" id="scientific-name">${animalInfo.scientificName}</h3>
+        </div>
+
+        <hr>
+        <div id="animal-chips">
+            <div id="animal-category">
+                <p>${animalInfo.category}</p>
             </div>
-
-            <div id="right-page">
-                <div id="animal-name">
-                    <h2 class="cardenio-bold" id="common-name">${animalInfo.name}</h2>
-                    <h3 class="italianno-regular" id="scientific-name">${animalInfo.scientificName}</h3> 
-                </div>
-
-                <hr>
-                
-                <div id="close-button">
-                    <img class="icon" src="icons/icon-close.svg" alt="">
-                </div>
+            <div id="animal-conservation-status" class="${animalInfo.conservationStatus.toLowerCase().replaceAll(" ", "-")}">
+                <p>${animalInfo.conservationStatus}</p>
             </div>
         </div>
+
+        <ul id="animal-taxonomy">
+            <li class="taxonomy-level">
+                <label>Kingdom</label>
+                <p>${animalInfo.taxonomy.kingdom}</p>
+            </li>
+            <li class="taxonomy-level">
+                <label>Phylum</label>
+                <p>${animalInfo.taxonomy.phylum}</p>
+            </li>
+            <li class="taxonomy-level">
+                <label>Class</label>
+                <p>${animalInfo.taxonomy.class}</p>
+            </li>
+            <li class="taxonomy-level">
+                <label>Order</label>
+                <p>${animalInfo.taxonomy.order}</p>
+            </li>
+            <li class="taxonomy-level">
+                <label>Family</label>
+                <p>${animalInfo.taxonomy.family}</p>
+            </li>
+            <li class="taxonomy-level">
+                <label>Genus</label>
+                <p>${animalInfo.taxonomy.genus}</p>
+            </li>
+        </ul>
+
+        <hr>
+
+        
+
+        <div>
+            <p id="animal-description" class="inter-light">${animalInfo.summary}</p>
+        </div>
+
+        <div id="close-button">
+            <img class="icon" src="icons/icon-close.svg" alt="">
+        </div>
+    </div>
+</div>
         `
 }
 

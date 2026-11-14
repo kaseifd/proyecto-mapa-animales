@@ -16,6 +16,9 @@
     --land-medium: hsl(30, 25%, 55%);
     --land-dark: hsl(30, 25%, 25%);
 
+    --paper-1: hsl(48, 35%, 90%);
+    --paper-2: hsl(28, 58%, 79%);
+
     --accent-background: hsl(75, 86%, 50%);
     --accent-stroke: hsl(75, 86%, 40%);
 

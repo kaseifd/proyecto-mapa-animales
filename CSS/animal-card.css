@@ -1,3 +1,4 @@
+/* Left page */
 .animal-info #left-page {
     display: flex;
     flex-direction: column;
@@ -13,33 +14,55 @@
 }
 
 #animal-photo {
-    width: 250px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
     border: 5px solid white;
-    margin: 24px 0;
+    margin: -50px -50px 0 0;
     transform: rotate(2deg);
     box-shadow: 10px 10px 15px -10px var(--land-light);
-}
-
-#animal-photo{
     display: block;
 }
 
-#animal-description {
-    font-size: 12px;
-    margin: 0;
+#animal-continents-map{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    background-color: white;
+    top: 50%;
+    left: -10%;
+    transform: rotate(-3deg);
+    box-shadow: 10px 10px 15px -10px var(--land-light);
 }
 
+#animal-native-range {
+    background-color: var(--paper-1);
+    box-shadow: 10px 10px 15px -10px var(--land-light);
+    padding: 12px 24px;
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    z-index: 1;
+    max-width: 280px;
+    transform: rotate(5deg);
+}
 
-
-#animal-name {
+#animal-native-range p {
+    margin: 0;
+    color: var(--text-on-light);
+    font-size: 24px;
+    line-height: 24px;
     text-align: center;
 }
 
-hr {
-    width: 200px;
-    border: none;
-    border-top: 1px solid var(--land-light);
+
+
+
+
+/* Right page */
+
+#animal-name {
+    text-align: center;
 }
 
 #common-name{
@@ -53,3 +76,81 @@ hr {
     color: var(--land-dark);
 }
 
+#animal-chips {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 16px;
+}
+
+#animal-chips > * {
+    padding: 8px 14px;
+    border-radius: 99999px;
+    border: solid 1px var(--land-light);
+    text-transform: uppercase;
+    font-family: "Inter";
+    font-weight: 400;
+    font-size: 11px;
+
+}
+
+#animal-chips > * p {
+    margin: 0;
+    color: var(--text-on-light);
+}
+
+#animal-conservation-status {
+    border: none;
+}
+
+hr {
+    width: 200px;
+    border: none;
+    border-top: 1px solid var(--land-light);
+}
+
+
+#animal-taxonomy {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 4px;
+}
+
+.taxonomy-level {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.taxonomy-level::after{
+    content: "\2192";
+    margin: 0 6px;
+}
+
+.taxonomy-level:last-child::after{
+    content: "";
+}
+
+.taxonomy-level > * {
+    font-family: "Inter";
+    font-size: 10px;
+    font-weight: 300;
+}
+
+.taxonomy-level label {
+    text-transform: uppercase;
+}
+
+.taxonomy-level p {
+    font-weight: 500;
+    font-style: italic;
+    margin: 0;
+}
+
+#animal-description {
+    font-size: 12px;
+    margin: 28px 12px;
+}
