@@ -69,11 +69,22 @@ function removeBackButton() {
     document.getElementById("back-button").style.display = "none"
 }
 
-
+// Close elements when clicking outside
 document.addEventListener("click", (event) => {
     let searchBarContainer = document.getElementById("search-bar")
+    let searchResultsUl =  document.getElementById("search-results")
 
-    if(!searchBarContainer.contains(event.target)) {
-        document.getElementById("search-results").style.display = "none"
+    let filterOptionsContainer = document.getElementById("filter-options-container")
+    let filterButton = document.getElementById("filter-settings-button")
+
+    if (!searchBarContainer.contains(event.target)) {
+        searchResultsUl.style.display = "none"
+    }
+
+    if (
+        !filterOptionsContainer.contains(event.target) &&
+        !filterButton.contains(event.target)    
+    ) {
+        closeFilters()
     }
 })
