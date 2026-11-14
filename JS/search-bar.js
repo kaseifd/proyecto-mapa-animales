@@ -3,33 +3,67 @@ function searchAnimal() {
         .toLowerCase()
         .trim()
 
-    let continentsName = ["europe", "africa", "north-america", "south-america", "oceania", "oceans", "asia", "antarctica"]
+    let searchResultsUl = document.getElementById("search-results")
 
-    document.getElementById("search-results").innerHTML = ``
-    let maxResults = 10
     let resultsCounter = 0
+    let maxResults = 10
+    let addedAnimals = []
 
-    continentsIds.forEach(continentId => {
-        continents[continentId].animals.forEach(animal => {
+    searchResultsUl.innerHTML = ""
+
+    if (searchBarValue == "") {
+        searchResultsUl.style.display = "none"
+        searchResultsUl.innerHTML = ""
+        return
+    }
+
+    for (let i = 0; i < continentsIds.length; i++) {
+        let animals = continents[continentsIds[i]].animals
+
+        for (let j = 0; j < animals.length; j++) {
+            let animal = animals[j]
+            let animalName = animal.name.toLowerCase()
+
             if (
-                (animal.slug.includes(searchBarValue) || 
-                animal.name.toLowerCase().includes(searchBarValue)) && 
+                (animal.slug.includes(searchBarValue) ||
+                animalName.includes(searchBarValue)) &&
+                !addedAnimals.includes(animal.slug) &&
                 resultsCounter < maxResults
             ) {
-                document.getElementById("search-results").innerHTML += `
-                    <li class="search-result">${animal.name}</li>
-                    `
+                searchResultsUl.style.display = "block"
 
+                searchResultsUl.innerHTML += `
+                <li class="search-result inter-light" data-slug="${animal.slug}">${animal.name}</li>
+                `
+
+                addedAnimals.push(animal.slug)
                 resultsCounter++
-            }
-        })
-    })
 
-    // openAnimalCard(animalNameForURL)
+            }
+        }
+    }
+    
+    if (resultsCounter == 0) {
+        searchResultsUl.innerHTML += `
+                <li class="search-result inter-light">Animal not found</li>
+                `
+    }
+
+    let searchResults = document.querySelectorAll(".search-result")
+
+    searchResults.forEach(result => {
+        result.addEventListener("click", () => {
+            openAnimalCardFromSearch(result.dataset.slug)
+            searchResultsUl.style.display = "none"      
+        })
+    });
 }
 
-// function animalNameToNameForUrl(animalName) {
-//     return animalName.toLowerCase().replaceAll(" ", "-").normalize("NFD")
-//         .replace(/[\u0300-\u036f]/g, "");
+async function openAnimalCardFromSearch(animalSlug) {
+    await openAnimalCard(animalSlug)
+    removeBackButton()
+}
 
-// }
+function removeBackButton() {
+    document.getElementById("back-button").style.display = "none"
+}

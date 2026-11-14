@@ -28,11 +28,17 @@ svg {
     padding-bottom: 0;
     max-width: calc(100% - 44px * 2);
     width: 100%;
+    z-index: 1;
 }
 
 #logo-container,
 #filter-settings-container {
     width: 200px;
+}
+
+
+#logo {
+    margin: 0;
 }
 
 #search-bar {
@@ -76,6 +82,34 @@ svg {
     right: 16px;
     display: block;
 }
+
+#search-results{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    border-radius: 8px;
+    list-style: none;
+    position: absolute;
+    top: 110%;
+    background-color: var(--background-blur);
+    backdrop-filter: blur(7px);
+    border: 1px solid var(--grey-80);
+    overflow: hidden;
+    display: none;
+}
+
+.search-result{
+    padding: 14px 18px;
+    border-bottom: solid 1px var(--grey-80);
+    font-size: 14px;
+}
+
+.search-result:last-child {
+    border: none;
+}
+
+
+
 
 #search-bar-icon .icon,
 #style-button .icon, .close-icon  {
