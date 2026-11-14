@@ -62,6 +62,7 @@ function searchAnimal() {
 async function openAnimalCardFromSearch(animalSlug) {
     await openAnimalCard(animalSlug)
     removeBackButton()
+    document.getElementById("search-bar-input").value = ""
 }
 
 function removeBackButton() {
