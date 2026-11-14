@@ -68,3 +68,12 @@ async function openAnimalCardFromSearch(animalSlug) {
 function removeBackButton() {
     document.getElementById("back-button").style.display = "none"
 }
+
+
+document.addEventListener("click", (event) => {
+    let searchBarContainer = document.getElementById("search-bar")
+
+    if(!searchBarContainer.contains(event.target)) {
+        document.getElementById("search-results").style.display = "none"
+    }
+})
