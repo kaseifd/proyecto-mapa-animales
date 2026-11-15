@@ -12,9 +12,6 @@ async function openAnimalCard(animalSlug) {
     // Show animal card
     renderAnimalCard(animalInfo)
 
-    // Load animal photo
-    await renderAnimalPhoto(animalSlug)
-
     // Change colors on map
     highlightContinentsOnMap(animalInfo)
 
@@ -22,8 +19,10 @@ async function openAnimalCard(animalSlug) {
     document.getElementById("close-button").addEventListener("click", closeAnimalCard)
 
     document.getElementById("back-button").addEventListener("click", back)
-}
 
+    // Load animal photo
+    await renderAnimalPhoto(animalSlug)
+}
 
 function renderAnimalCard(animalInfo) {
     document.getElementById("continents-container").innerHTML = `
@@ -33,8 +32,9 @@ function renderAnimalCard(animalInfo) {
             <img class="icon" src="icons/icon-back.svg" alt="">
         </div>
 
-        <div>
-            <img id="animal-photo" src="../images/world-map.svg" alt="">
+        <div id="animal-photo-container">
+            <img id="loading-gif" src="images/loading.gif" alt="Cargando…">
+            <img id="animal-photo">
         </div>
 
         <div id="animal-continents-map">
@@ -113,6 +113,20 @@ function back() {
     showContinentDetails(currentContinent)
 }
 
+function highlightContinentsOnMap(animalInfo) {
+
+    animalInfo.range.continents.forEach((continent) => {
+
+        if (continent != "Oceans") {
+            document.getElementById(continent.toLowerCase().replaceAll(" ", "-")).classList.add("active")
+
+        } else {
+            document.getElementById(`animal-continents-map`).style.background = "var(--ocean-selected)"
+        }
+
+    })
+}
+
 async function getAnimalImageURL(animalName) {
 
     let params = new URLSearchParams({
@@ -142,22 +156,15 @@ async function getAnimalImageURL(animalName) {
 }
 
 async function renderAnimalPhoto(animalName) {
+    let animalImage = document.getElementById("animal-photo");
+    let loadingGif = document.getElementById("loading-gif")
+
     let animalImageURL = await getAnimalImageURL(animalName)
 
-    document.getElementById("animal-photo").src = animalImageURL
-}
+    animalImage.onload = function () {
+        loadingGif.style.display = "none"
+        animalImage.style.display = "block"
+    }
 
-
-function highlightContinentsOnMap(animalInfo) {
-
-    animalInfo.range.continents.forEach((continent) => {
-
-        if (continent != "Oceans") {
-            document.getElementById(continent.toLowerCase().replaceAll(" ", "-")).classList.add("active")
-
-        } else {
-            document.getElementById(`animal-continents-map`).style.background = "var(--ocean-selected)"
-        }
-
-    })
+    animalImage.src = animalImageURL
 }
