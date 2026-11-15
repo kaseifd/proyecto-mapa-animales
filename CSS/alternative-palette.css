@@ -17,6 +17,7 @@
     --paper-2: hsl(28, 58%, 79%);
     
     --accent-background: hsl(28, 80%, 55%);
+    --accent-background-hover: hsl(28, 95%, 50%);
     --accent-stroke: hsl(28, 55%, 50%);
     --ocean-selected: hsl(28, 70%, 45%);
     

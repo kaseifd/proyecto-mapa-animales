@@ -1,0 +1,105 @@
+* {
+    font-family: "Inter", sans-serif;
+    color: var(--text-on-light);
+}
+
+body {
+    background-color: var(--water-light);
+    margin: 0;
+}
+
+main {
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.title {
+    font-family: cardenio-bold;
+    font-size: 32px;
+    margin-top: 0;
+}
+
+#main-title {
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 64px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: var(--text-on-light);
+    width: 100%;
+}
+
+#description {
+    display: flex;
+    gap: 56px;
+}
+
+.text-block {
+    background-color: var(--water-dark);
+    border-radius: 4px;
+    padding: 24px;
+}
+
+#explore-wild-block{
+    max-width: 25%;
+}
+
+#explore-wild-block p {
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+#columns-block{
+    display: flex;
+    gap: 40px;
+}
+
+#columns-block div {
+    width: 100%;
+}
+
+#behind-project-block .title {
+    font-size: 24px;
+}
+
+#behind-project-block p {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+
+p {
+    margin: 0;
+}
+
+.button {
+    background-color: var(--accent-background);
+    padding: 12px 24px;
+    border-radius: 99999px;
+    border: solid 1px var(--accent-stroke);
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    user-select: none;
+    margin-top: 24px;
+}
+
+.icon {
+    width: 32px;
+}
+
+.button:hover {
+    background-color: var(--accent-background-hover);
+}
+
+.button:visited {
+    color: var(--text-on-light);
+}
+
