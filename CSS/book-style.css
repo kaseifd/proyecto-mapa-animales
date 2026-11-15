@@ -132,7 +132,6 @@
     transition: all 0.3s ease;
     font-weight: normal;
     font-size: 24px;
-    /* font-family: "Arial Unicode MS", sans-serif; */
 }
 
 .animal-name:hover::before {

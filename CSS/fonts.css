@@ -47,12 +47,3 @@
   font-style: normal;
 }
 
-
-/* * {
-    border: solid 1px red;
-} */
-
-body {
-    margin: 0;
-    background-color: var(--background-light);
-}
