@@ -9,21 +9,21 @@ function closeFilters() {
 }
 
 
-function doFilter(category) {
-    let continentsName = ["europe", "africa", "north-america", "south-america", "oceania", "oceans", "asia", "antarctica"]
-    let animals = []
+// function doFilter(category) {
+//     let continentsName = ["europe", "africa", "north-america", "south-america", "oceania", "oceans", "asia", "antarctica"]
+//     let animals = []
 
 
-    continentsName.forEach(continent => {
-        continents[continent].animals.forEach(animal => { 
+//     continentsName.forEach(continent => {
+//         continents[continent].animals.forEach(animal => { 
             
-            if (animal.category == category) {
-                animals.push(animal)
-            }
-        })
-    })
-    continentsName.forEach(continent => {
-    displayAnimalsNumber(sortAnimalsByContinent(animals)[continent], continent)
-    })
+//             if (animal.category == category) {
+//                 animals.push(animal)
+//             }
+//         })
+//     })
+//     continentsName.forEach(continent => {
+//     displayAnimalsNumber(sortAnimalsByContinent(animals)[continent], continent)
+//     })
 
-}
+// }
