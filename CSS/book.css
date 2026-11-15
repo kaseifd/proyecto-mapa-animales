@@ -1,6 +1,7 @@
 /* General structure of the book */
 
-.continent-info, .animal-info {
+.continent-info,
+.animal-info {
     display: flex;
     background-color: var(--background-light);
     position: absolute;
@@ -36,8 +37,8 @@
 
 #left-page-legend {
     list-style: none;
-    padding: 24px;
-    margin: 0 auto;
+    padding: 0 24px;
+    margin: 38px auto;
     display: grid;
     grid-auto-flow: column;
     grid-template-rows: repeat(4, auto);
@@ -67,8 +68,6 @@
     letter-spacing: 3%;
     color: var(--text-on-light);
 }
-
-
 
 /* Right page */
 
@@ -154,10 +153,6 @@
     right: 24px;
 }
 
-
-
-
-
 /* Legend colors */
 
 .critically-endangered {
@@ -186,4 +181,109 @@
 
 .not-evaluated {
     background-color: var(--conservation-status-not-evaluated);
+}
+
+@media (max-width: 1350px) {
+    #left-page,
+    #right-page {
+        width: 450px;
+        height: 350px;
+    }
+
+    #left-page-map svg {
+        padding-top: 0;
+    }
+
+    #left-page-legend {
+        margin: 24px auto;
+    }
+
+    #list-container {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 950px) {
+    .continent-info,
+    .animal-info {
+        padding: 16px 0;
+        border-radius: 12px;
+    }
+
+    #left-page,
+    #right-page {
+        width: 320px;
+        height: 260px;
+        padding: 0 16px;
+    }
+
+    #left-page-map {
+        margin: 0;
+    }
+
+    #left-page-legend {
+        padding: 0;
+        margin: 16px auto;
+        column-gap: 30px;
+    }
+
+    .legend-item {
+        margin-bottom: 6px;
+    }
+
+    .conservation-status {
+        font-size: 15px;
+    }
+
+    #right-page h2 {
+        font-size: 20px;
+        margin-top: 8px;
+    }
+
+    #list-container {
+        max-height: 215px;
+    }
+
+    .columns-list {
+        column-count: 1;
+    }
+
+    .animal-name {
+        font-size: 22px;
+    }
+
+    #close-button .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    #close-button {
+        right: 16px;
+    }
+}
+
+@media (max-width: 700px) {
+    .continent-info,
+    .animal-info {
+        flex-direction: column-reverse;
+        top: 50%;
+        z-index: 1111;
+        
+    }
+
+    #left-page,
+    #right-page {
+        width: 300px;
+        height: 260px;
+        padding: 0 16px;
+    }
+
+    #right-page {
+    border: none;
+}
+
+    #list-container {
+        max-height: 200px;
+    }
+   
 }
