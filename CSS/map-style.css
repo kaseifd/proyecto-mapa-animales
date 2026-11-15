@@ -33,7 +33,25 @@ svg {
 
 #logo-container,
 #filter-settings-container {
-    width: 200px;
+    width: 250px;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--text-on-light);
+    font-family: cardenio-regular;
+    font-size: 28px;
 }
 
 #logo {
