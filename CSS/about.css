@@ -1,6 +1,7 @@
 * {
     font-family: "Inter", sans-serif;
     color: var(--text-on-light);
+    box-sizing: border-box;
 }
 
 body {
@@ -101,4 +102,39 @@ p {
 
 .button:visited {
     color: var(--text-on-light);
+}
+
+
+@media (max-width: 950px) {
+    #description {
+    gap: 40px;
+}
+
+#explore-wild-block{
+    min-width: 35%;
+}
+
+#columns-block{
+    display: block;
+}
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 24px;
+        align-items: center;
+    }
+
+    #main-title{
+        font-size: 52px;
+        line-height: 48px;
+    }
+    #description {
+        display: block;
+    }
+
+    #explore-wild-block{
+    min-width: 100%;
+    margin-bottom: 24px;
+}
 }
