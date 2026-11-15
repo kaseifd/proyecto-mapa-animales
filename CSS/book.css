@@ -266,8 +266,8 @@
     .continent-info,
     .animal-info {
         flex-direction: column-reverse;
-        top: 50%;
         z-index: 1111;
+        position: fixed;
         
     }
 
