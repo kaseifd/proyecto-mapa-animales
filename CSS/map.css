@@ -10,20 +10,16 @@ svg {
     stroke: var(--grey-30) !important; */
 }
 
-
-
 /* Main container */
 
 #map-container {
     position: relative;
     background-color: var(--water-light);
-    margin: 32px;
+    margin: 8px 32px;
     border: 1px solid var(--water-medium);
     border-radius: 20px;
     overflow: hidden;
 }
-
-
 
 /* Header and navigation */
 
@@ -57,7 +53,7 @@ nav ul {
     margin: 0;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     color: var(--text-on-light);
     font-family: cardenio-regular;
@@ -67,8 +63,6 @@ nav ul li a{
 #logo {
     margin: 0;
 }
-
-
 
 /* Continents markers */
 
@@ -131,4 +125,134 @@ nav ul li a{
 #circle-oceans {
     top: 62%;
     left: 42%;
+}
+
+@media (max-width: 1160px) {
+    svg {
+        padding-top: 56px;
+    }
+
+    #map-container {
+        margin: 8px;
+    }
+
+    #header {
+        padding: 16px;
+        max-width: calc(100% - 16px * 2);
+    }
+
+    #logo {
+        font-size: 24px;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    #circle-europe {
+        top: 27%;
+    }
+
+    #circle-africa {
+        top: 48%;
+        left: 50%;
+    }
+
+    #circle-north-america {
+        top: 32%;
+        left: 18%;
+    }
+
+    #circle-south-america {
+        top: 58%;
+        left: 28%;
+    }
+
+    #circle-asia {
+        top: 34%;
+    }
+
+    #circle-oceans {
+        top: 65%;
+        left: 40%;
+    }
+
+    #circle-oceania {
+        top: 62%;
+        left: 86%;
+    }
+}
+
+@media (max-width: 600px) {
+    #map-container {
+        margin: 0;
+        width: 100%;
+        height: 100dvh;
+        overflow-x: auto;
+        overflow-y: hidden;
+        border: none;
+        border-radius: 0;
+    }
+
+    #map-content {
+        position: relative;
+        width: max(100%, 1100px);
+        height: 100%;
+    }
+
+    #map-content > svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    #header {
+        flex-direction: column;
+        gap: 8px;
+        position: fixed;
+    }
+
+    #logo-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        justify-content: center;
+    }
+
+    #filter-settings-container {
+        justify-content: center !important;
+    }
+
+    #circle-europe {
+        top: 30%;
+    }
+
+    #circle-africa {
+        top: 52%;
+        left: 52%;
+    }
+
+    #circle-north-america {
+        top: 36%;
+        left: 20%;
+    }
+
+    #circle-south-america {
+        top: 62%;
+        left: 30%;
+    }
+
+    #circle-oceans {
+        top: 74%;
+        left: 42%;
+    }
+
+    #circle-oceania {
+        top: 66%;
+        left: 87%;
+    }
+
+    #circle-antarctica {
+        top: 88%;
+        left: 70%;
+    }
 }

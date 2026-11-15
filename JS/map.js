@@ -1,7 +1,7 @@
 let worldMapSVG
 let currentContinent = ""
 
-let mapContainerHTML = document.getElementById("map-container")
+let mapContainerHTML = document.getElementById("map-content")
 
 let continents = {
     "europe": {
@@ -172,7 +172,8 @@ function showContinentDetails(continent) {
     `
     // Highlight the selected continent / ocean
     if (continent != "oceans") {
-        document.getElementById(continent).classList.add("active")
+        let bookMap = document.getElementById(`left-page-map`)
+        bookMap.querySelector(`#${continent}`).classList.add("active")
 
     } else {
         document.getElementById(`left-page-map`).style.background = "var(--accent-background)"
