@@ -20,7 +20,8 @@
     border: 5px solid white;
     margin: -50px -50px 0 0;
     transform: rotate(2deg);
-    box-shadow: 10px 10px 15px -10px var(--land-light);background-color: white;
+    box-shadow: 10px 10px 15px -10px var(--land-light);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,6 +56,7 @@
 
 #animal-continents-map svg {
     object-fit: contain;
+    padding: 0;
 }
 
 #animal-native-range {
@@ -77,17 +79,13 @@
     text-align: center;
 }
 
-
-
-
-
 /* Right page */
 
 #animal-name {
     text-align: center;
 }
 
-#common-name{
+#common-name {
     margin-bottom: 0 !important;
     font-size: 28px !important;
 }
@@ -145,12 +143,12 @@ hr {
     gap: 4px;
 }
 
-.taxonomy-level::after{
+.taxonomy-level::after {
     content: "\2192";
     margin: 0 6px;
 }
 
-.taxonomy-level:last-child::after{
+.taxonomy-level:last-child::after {
     content: "";
 }
 
@@ -173,4 +171,106 @@ hr {
 #animal-description {
     font-size: 12px;
     margin: 28px 12px;
+}
+
+@media (max-width: 950px) {
+    /* #left-page,
+    #right-page {
+        width: 320px;
+        height: 260px;
+        padding: 0 16px;
+    } */
+
+    #animal-content {
+        overflow-y: auto;
+        max-height: 180px;
+    }
+
+    #animal-photo-container {
+        width: 230px;
+        height: 200px;
+        margin: -30px -50px 0 0;
+    }
+
+    #back-button .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    #back-button {
+        left: 16px;
+    }
+
+    #animal-continents-map {
+        width: 200px;
+        height: 120px;
+        top: 35%;
+        left: -5%;
+    }
+
+    #animal-native-range {
+        padding: 12px 12px;
+        bottom: -5%;
+        max-width: 230px;
+    }
+
+    #animal-native-range p {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+
+
+
+
+    #common-name {
+        font-size: 24px !important;
+    }
+
+    #scientific-name {
+        font-size: 22px;
+    }
+
+    #animal-chips {
+        gap: 8px;
+        margin: 6px auto;
+    }
+
+    #animal-chips > * {
+        padding: 6px 12px;
+        font-size: 10px;
+    }
+
+    #animal-taxonomy {
+        row-gap: 2px;
+        margin: 12px 0;
+    }
+
+    .taxonomy-level::after {
+        margin: 0 4px;
+    }
+
+    #animal-description {
+        font-size: 11px;
+        margin: 12px 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    #animal-photo-container {
+        width: 250px;
+        height: 200px;
+        margin: 0px -120px 0 0;
+    }
+
+    #animal-continents-map {
+        width: 180px;
+        top: 15%;
+    }
+
+    #animal-native-range {
+        margin-top: -5%;
+        position: static;
+        max-width: 230px;
+    }
 }

@@ -53,49 +53,53 @@ function renderAnimalCard(animalInfo) {
         </div>
 
         <hr>
-        <div id="animal-chips">
-            <div id="animal-category">
-                <p>${animalInfo.category}</p>
+
+        <div id="animal-content">
+            <div id="animal-chips">
+                <div id="animal-category">
+                    <p>${animalInfo.category}</p>
+                </div>
+                <div id="animal-conservation-status" class="${animalInfo.conservationStatus.toLowerCase().replaceAll(" ", "-")}">
+                    <p>${animalInfo.conservationStatus}</p>
+                </div>
             </div>
-            <div id="animal-conservation-status" class="${animalInfo.conservationStatus.toLowerCase().replaceAll(" ", "-")}">
-                <p>${animalInfo.conservationStatus}</p>
+
+            <ul id="animal-taxonomy">
+                <li class="taxonomy-level">
+                    <label>Kingdom</label>
+                    <p>${animalInfo.taxonomy.kingdom}</p>
+                </li>
+                <li class="taxonomy-level">
+                    <label>Phylum</label>
+                    <p>${animalInfo.taxonomy.phylum}</p>
+                </li>
+                <li class="taxonomy-level">
+                    <label>Class</label>
+                    <p>${animalInfo.taxonomy.class}</p>
+                </li>
+                <li class="taxonomy-level">
+                    <label>Order</label>
+                    <p>${animalInfo.taxonomy.order}</p>
+                </li>
+                <li class="taxonomy-level">
+                    <label>Family</label>
+                    <p>${animalInfo.taxonomy.family}</p>
+                </li>
+                <li class="taxonomy-level">
+                    <label>Genus</label>
+                    <p>${animalInfo.taxonomy.genus}</p>
+                </li>
+            </ul>
+
+            <hr>
+
+            
+
+            <div>
+                <p id="animal-description" class="inter-light">${animalInfo.summary}</p>
             </div>
         </div>
-
-        <ul id="animal-taxonomy">
-            <li class="taxonomy-level">
-                <label>Kingdom</label>
-                <p>${animalInfo.taxonomy.kingdom}</p>
-            </li>
-            <li class="taxonomy-level">
-                <label>Phylum</label>
-                <p>${animalInfo.taxonomy.phylum}</p>
-            </li>
-            <li class="taxonomy-level">
-                <label>Class</label>
-                <p>${animalInfo.taxonomy.class}</p>
-            </li>
-            <li class="taxonomy-level">
-                <label>Order</label>
-                <p>${animalInfo.taxonomy.order}</p>
-            </li>
-            <li class="taxonomy-level">
-                <label>Family</label>
-                <p>${animalInfo.taxonomy.family}</p>
-            </li>
-            <li class="taxonomy-level">
-                <label>Genus</label>
-                <p>${animalInfo.taxonomy.genus}</p>
-            </li>
-        </ul>
-
-        <hr>
-
         
-
-        <div>
-            <p id="animal-description" class="inter-light">${animalInfo.summary}</p>
-        </div>
 
         <div id="close-button">
             <img class="icon" src="icons/icon-close.svg" alt="">
