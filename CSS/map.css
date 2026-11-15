@@ -1,0 +1,134 @@
+/* SVG Map */
+
+svg {
+    display: block;
+}
+
+.cls-1 {
+    fill: var(--land-medium) !important;
+    /* stroke-width: 2px !important;
+    stroke: var(--grey-30) !important; */
+}
+
+
+
+/* Main container */
+
+#map-container {
+    position: relative;
+    background-color: var(--water-light);
+    margin: 32px;
+    border: 1px solid var(--water-medium);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
+/* Header and navigation */
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    padding: 32px 44px;
+    padding-bottom: 0;
+    max-width: calc(100% - 44px * 2);
+    width: 100%;
+    z-index: 1;
+}
+
+#logo-container,
+#filter-settings-container {
+    width: 250px;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--text-on-light);
+    font-family: cardenio-regular;
+    font-size: 28px;
+}
+
+#logo {
+    margin: 0;
+}
+
+
+
+/* Continents markers */
+
+.circle {
+    background-color: var(--accent-background);
+    border: 1px solid var(--accent-stroke);
+    width: 20px;
+    height: 20px;
+    border-radius: 9999999px;
+    position: absolute;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animals-number {
+    margin: 0;
+    text-align: center;
+    color: var(--text-on-light);
+    font-size: 12px;
+    user-select: none;
+}
+
+#circle-europe {
+    top: 20%;
+    left: 47%;
+}
+
+#circle-africa {
+    top: 42%;
+    left: 51%;
+}
+
+#circle-north-america {
+    top: 27%;
+    left: 20%;
+}
+
+#circle-south-america {
+    top: 52%;
+    left: 30%;
+}
+
+#circle-oceania {
+    top: 58%;
+    left: 87%;
+}
+
+#circle-asia {
+    top: 25%;
+    left: 70%;
+}
+
+#circle-antarctica {
+    top: 86%;
+    left: 67%;
+}
+
+#circle-oceans {
+    top: 62%;
+    left: 42%;
+}

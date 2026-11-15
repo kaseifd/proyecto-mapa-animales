@@ -1,5 +1,6 @@
-.continent-info,
-.animal-info {
+/* General structure of the book */
+
+.continent-info, .animal-info {
     display: flex;
     background-color: var(--background-light);
     position: absolute;
@@ -18,6 +19,8 @@
     height: 400px;
     padding: 0 24px;
 }
+
+/* Map and legend */
 
 #left-page-map {
     background-color: var(--water-light);
@@ -65,10 +68,15 @@
     color: var(--text-on-light);
 }
 
+
+
+/* Right page */
+
 #right-page {
     border-left: 1px solid var(--land-light);
     position: relative;
 }
+
 #right-page h2 {
     font-size: 24px;
     margin: 12px 0;
@@ -89,7 +97,7 @@
     -ms-overflow-style: none;
 }
 
-/* 2. Oculta la barra en Chrome, Safari y Edge moderno SOLO para este contenedor */
+/* Oculta la barra en Chrome, Safari y Edge moderno SOLO para este contenedor */
 .contenedor-lista::-webkit-scrollbar {
     display: none; /* Hace invisible la barra de esta sección */
 }
@@ -145,6 +153,10 @@
     top: 0;
     right: 24px;
 }
+
+
+
+
 
 /* Legend colors */
 

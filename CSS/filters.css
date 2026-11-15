@@ -1,0 +1,117 @@
+#filter-settings-container {
+    display: flex;
+    justify-content: end;
+    gap: 12px;
+    position: relative;
+}
+
+#style-button {
+    border: 1px solid var(--grey-80);
+    background-color: var(--background-blur);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 12px;
+}
+
+#style-button:hover {
+    border: 1px solid var(--accent-stroke);
+    background-color: var(--accent-background); 
+}
+
+#style-button .icon {
+    width: 24px;
+}
+
+#filter-settings-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: right;
+    gap: 12px;
+    color: var(--text-on-light);
+    border: 1px solid var(--grey-80);
+    background-color: var(--background-blur);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 6px 12px 6px 16px;
+    object-fit: contain;
+}
+
+#filter-settings-button .label {
+    font-size: 24px;
+}
+
+#filter-settings-button:hover {
+    border: 1px solid var(--accent-stroke);
+    background-color: var(--accent-background);
+}
+
+
+
+/* Filter menu */
+
+#filter-options-container {
+    position: absolute;
+    background-color: var(--background-blur);
+    backdrop-filter: blur(8px);
+    padding: 24px;
+    top: 0;
+    right: -999px;
+    z-index: 1;
+    width: 300px;
+    height: 100%;
+    box-sizing: border-box;
+    transition: right 0.7s ease-in-out;
+    box-shadow: 0 0 20.8px 0 var(--water-box-shadow);
+}
+
+#filter-options-container.opened {
+    right: 0;
+    transition: all 0.5s ease;
+}
+
+#filter-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#filter-title p {
+    font-size: 24px;
+    margin: 0;
+}
+
+#category-filter {
+    margin-bottom: 32px;
+}
+
+.filter-label {
+    font-size: 20px;
+    margin: 4px 0 12px 0;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-option {
+    background-color: var(--background-blur);
+    border: 1px solid var(--grey-80);
+    padding: 8px 16px;
+    border-radius: 999999px;
+    width: fit-content;
+}
+
+.filter-option p {
+    margin: 0;
+    text-align: center;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.filter-option:hover {
+    background-color: var(--accent-background);
+    border-color: var(--accent-stroke);
+}

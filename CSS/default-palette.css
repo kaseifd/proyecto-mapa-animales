@@ -1,7 +1,4 @@
 :root {
-    /* --dark-color: #2a1b16;
-    --light-color: hsl(43, 37%, 96%); */
-
     --background-light: hsl(30, 25%, 96%);
     --background-dark: hsl(30, 25%, 10%);
     --text-on-light: hsl(30, 25%, 10%);
