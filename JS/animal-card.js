@@ -118,14 +118,15 @@ function back() {
 }
 
 function highlightContinentsOnMap(animalInfo) {
-
+    let leftPage = document.getElementById("left-page")
+    
     animalInfo.range.continents.forEach((continent) => {
-
+        
         if (continent != "Oceans") {
-            document.getElementById(continent.toLowerCase().replaceAll(" ", "-")).classList.add("active")
+            leftPage.querySelector(`#${continent.toLowerCase().replaceAll(" ", "-")}`).classList.add("active")
 
         } else {
-            document.getElementById(`animal-continents-map`).style.background = "var(--ocean-selected)"
+            leftPage.querySelector(`#animal-continents-map`).style.background = "var(--ocean-selected)"
         }
 
     })
